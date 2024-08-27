@@ -26,7 +26,7 @@ const CourseDetailsPage = ({ id }: Props) => {
   const { data: userData } = useLoadUserQuery(undefined, {});
   const [stripePromise, setStripePromise] = useState<any>(null);
   const [clientSecret, setClientSecret] = useState("");
-
+  console.log(data);
   useEffect(() => {
     if (config) {
       const publishablekey = config?.publishablekey;
@@ -43,6 +43,7 @@ const CourseDetailsPage = ({ id }: Props) => {
       setClientSecret(paymentIntentData?.client_secret);
     }
   }, [paymentIntentData]);
+
 
   return (
     <>
